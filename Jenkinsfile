@@ -6,9 +6,9 @@ pipeline {
       steps {
         script {
           // Build your Docker image
-          sh 'docker build -t my-flask-app .'
+          sh 'docker build -t demoflaskapp .'
           // Tag your Docker image with the target registry/tag
-          sh "docker tag my-flask-app $DOCKER_BFLASK_IMAGE"
+          sh "docker tag demoflaskapp $DOCKER_BFLASK_IMAGE"
         }
       }
     }
@@ -17,7 +17,7 @@ pipeline {
       steps {
         script {
           // Run your tests in the Docker container
-          sh 'docker run my-flask-app python -m pytest app/tests/'
+          sh 'docker run demoflaskapp python -m pytest app/tests/'
         }
       }
     }
