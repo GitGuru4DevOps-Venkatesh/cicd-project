@@ -27,4 +27,26 @@ pipeline {
       sh 'docker logout'
     }
   }
+  stage('Setup Virtual Environment') {
+   steps {
+      sh '''
+         python -m venv venv
+         source venv/bin/activate
+         pip install -r requirements.txt
+      '''
+   }
+}
+stage('Test') {
+   steps {
+      sh 'docker run my-flask-app python -m pytest app/tests/'
+   }
+}
+post {
+   always {
+      sh '''
+         deactivate
+         rm -rf venv
+      '''
+   }
+}
 }
