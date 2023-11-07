@@ -1,10 +1,6 @@
 pipeline {
   agent any
 
-  environment {
-    DOCKER_BFLASK_IMAGE = 'your-image-name:latest'  // Set your image name and tag
-  }
-
   stages {
     stage('Build') {
       steps {
