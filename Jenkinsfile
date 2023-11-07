@@ -27,6 +27,11 @@ pipeline {
       sh 'docker logout'
     }
   }
+  stage('Test') {
+   steps {
+      sh 'docker run my-flask-app python -m pytest app/tests/'
+   }
+}
   stage('Setup Virtual Environment') {
    steps {
       sh '''
@@ -36,12 +41,7 @@ pipeline {
       '''
    }
 }
-stage('Test') {
-   steps {
-      sh 'docker run my-flask-app python -m pytest app/tests/'
-   }
-}
-post {
+  post {
    always {
       sh '''
          deactivate
