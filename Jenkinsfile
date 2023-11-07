@@ -22,31 +22,14 @@ pipeline {
       }
     }
   }
-  post {
-    always {
-      sh 'docker logout'
-    }
-  }
   stage('Test') {
    steps {
       sh 'docker run my-flask-app python -m pytest app/tests/'
    }
 }
-  stage('Setup Virtual Environment') {
-   steps {
-      sh '''
-         python -m venv venv
-         source venv/bin/activate
-         pip install -r requirements.txt
-      '''
-   }
-}
   post {
-   always {
-      sh '''
-         deactivate
-         rm -rf venv
-      '''
-   }
-}
+    always {
+      sh 'docker logout'
+    }
+  }
 }
