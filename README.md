@@ -1,2 +1,1 @@
-# cicd-project
-cicd project
+# CI-CD-Jenkins
