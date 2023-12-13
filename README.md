@@ -1,4 +1,4 @@
-# Let's create a sample project that involves setting up a containerized application using Docker, deploying it to a Kubernetes cluster on AWS, and managing the deployment with Helm charts.
+**Let's create a sample project that involves setting up a containerized application using Docker, deploying it to a Kubernetes cluster on AWS, and managing the deployment with Helm charts.**
 Certainly! Let's create a sample project that involves setting up a containerized application using Docker, deploying it to a Kubernetes cluster on AWS, and managing the deployment with Helm charts. The example application will be a simple web server.
 
 **Project Overview:**
